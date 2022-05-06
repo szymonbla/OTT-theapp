@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 import { Button, Grid, Typography } from '@mui/material';
 
 import { SplashLogo } from './SplashLogo';
