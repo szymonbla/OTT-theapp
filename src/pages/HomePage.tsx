@@ -1,1 +1,3 @@
-export const HomePage = () => <h2>HomePage</h2>;
+import { PanelLayout } from 'layouts';
+
+export const HomePage = () => <PanelLayout>HomePage</PanelLayout>;
