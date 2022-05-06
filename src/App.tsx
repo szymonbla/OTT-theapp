@@ -1,3 +1,4 @@
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 
@@ -6,12 +7,20 @@ import theme from 'common/Theme';
 
 import 'common/styles/global.css';
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: { refetchOnWindowFocus: false }
+  }
+});
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Router>
-        <Routing />
-      </Router>
+      <QueryClientProvider client={queryClient}>
+        <Router>
+          <Routing />
+        </Router>
+      </QueryClientProvider>
     </ThemeProvider>
   );
 }
