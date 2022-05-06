@@ -1,11 +1,10 @@
-import { Typography } from '@mui/material';
-
 import { BaseLayout } from 'layouts';
+import { SplashView } from 'common/components';
 
 export const SplashPage = () => {
   return (
-    <BaseLayout>
-      <Typography variant="h1">The app</Typography>
+    <BaseLayout sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+      <SplashView />
     </BaseLayout>
   );
 };
