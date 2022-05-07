@@ -41,9 +41,3 @@ export interface UserInfoViewModel {
   phoneNumber?: string;
   clientRoles?: [string];
 }
-
-interface TokenResonse {
-  token: string;
-  tokenExpires: string;
-  refreshToken: string;
-}
