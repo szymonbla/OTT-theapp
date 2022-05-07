@@ -30,3 +30,14 @@ export const authenticatedAnonymousUserResponseSchema = z.object({
   User: UserInfoViewModelSchema,
   AuthorizationToken: TokenReponseSchema
 });
+
+export interface UserInfoViewModel {
+  id: number;
+  userName: string;
+  fullName: string;
+  email?: string;
+  initials?: string;
+  avatarUrl?: string;
+  phoneNumber?: string;
+  clientRoles?: [string];
+}
