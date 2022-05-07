@@ -1,7 +1,13 @@
 import { Box, Typography } from '@mui/material';
+
+import { useUser } from 'state';
 import LogoBall from 'common/images/logoBall.png';
 
 export const Menu = () => {
+  const {
+    user: { userName }
+  } = useUser();
+
   return (
     <Box
       sx={{
@@ -11,17 +17,27 @@ export const Menu = () => {
         justifyContent: 'space-around',
         width: '100%',
         backgroundColor: 'secondary.dark',
-        py: 2
+        py: 2,
+        '& > div': {
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }
       }}
     >
-      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <Box>
         <Typography variant="h3" sx={{ mr: 3 }}>
           The app
         </Typography>
         <Box component="img" src={LogoBall} alt="Logo ball" />
       </Box>
-      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <Typography variant="subtitle2">Logged in </Typography>
+      <Box>
+        <Typography variant="subtitle2" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          Logged in
+          <Typography variant="subtitle2" fontWeight="600" sx={{ ml: 2 }}>
+            {userName}
+          </Typography>
+        </Typography>
       </Box>
     </Box>
   );
