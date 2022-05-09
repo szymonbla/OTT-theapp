@@ -34,9 +34,9 @@ export const Menu = () => {
       <Box>
         <Typography variant="subtitle2" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           Logged in
-          <Typography variant="subtitle2" fontWeight="600" sx={{ ml: 2 }}>
-            {userName}
-          </Typography>
+        </Typography>
+        <Typography variant="subtitle1" fontWeight="600" sx={{ ml: 2 }}>
+          {userName}
         </Typography>
       </Box>
     </Box>

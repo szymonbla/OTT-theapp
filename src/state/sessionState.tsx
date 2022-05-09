@@ -67,7 +67,7 @@ export const SessionContextProvider = ({ children }: SessionContextProviderProps
     } else {
       navigate(RoutesDefinition.splash);
     }
-  }, [navigate]);
+  }, [navigate, sessionState]);
 
   const loginHandler = ({ token }: LoginData) => {
     localStorage.setItem('token', token);

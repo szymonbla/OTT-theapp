@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
@@ -14,6 +14,8 @@ export const SplashPage = () => {
   const { login } = useSession();
   const { updateUserState } = useUser();
   const navigate = useNavigate();
+
+  const isMounted = useRef<boolean>();
 
   const { mutate } = useMutation({
     mutationFn: anonymousSignIn,
@@ -31,9 +33,13 @@ export const SplashPage = () => {
   });
 
   useEffect(() => {
+    if (isMounted.current) return; // Due to the React 18 changes. https://reactjs.org/blog/2022/03/29/react-v18.html#new-strict-mode-behaviors
+
     setTimeout(() => {
       mutate({ Device: { Name: uuidv4(), PlatformCode: PlatformCode.WEB } });
     }, 3000);
+
+    isMounted.current = true;
   }, [mutate, navigate]);
 
   return (
