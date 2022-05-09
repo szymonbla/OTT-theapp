@@ -1,4 +1,4 @@
-import { createContext, useEffect, ReactNode, useContext, useReducer } from 'react';
+import { createContext, useEffect, ReactNode, useContext, useReducer, useCallback } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -67,7 +67,7 @@ export const SessionContextProvider = ({ children }: SessionContextProviderProps
     } else {
       navigate(RoutesDefinition.splash);
     }
-  }, [navigate]);
+  }, [navigate, sessionState]);
 
   const loginHandler = ({ token }: LoginData) => {
     localStorage.setItem('token', token);
