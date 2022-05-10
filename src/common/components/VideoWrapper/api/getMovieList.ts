@@ -1,7 +1,7 @@
 import * as z from 'zod';
 
 import { apiClient } from 'common/utils';
-import { movieListSchemaResponse } from 'common/types';
+import { movieListSchemaResponse, tokenDataSchema } from 'common/types';
 
 const getMediaListResponseWithTokenSchema = z.object({
   PageSize: z.number().optional(),
@@ -13,10 +13,6 @@ const getMediaListResponseWithTokenSchema = z.object({
   IncludeMedia: z.boolean().optional(),
   IncludeImages: z.boolean().optional(),
   MediaOptions: z.any().optional() // type any due to the lack of time
-});
-
-const tokenDataSchema = z.object({
-  token: z.string()
 });
 
 export type GetMediaListRequestData = z.infer<typeof getMediaListResponseWithTokenSchema>;

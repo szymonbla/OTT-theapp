@@ -96,7 +96,7 @@ export const VideoWrapper = ({ mediaLists }: VideoWrapperProps) => {
           />
         )}
         {entities.map((video, index) => (
-          <VideoItem images={video.Images ? video.Images : []} title={video.Title} key={index} />
+          <VideoItem images={video.Images ? video.Images : []} title={video.Title} id={video.Id} key={index} />
         ))}
       </Box>
       {currentIndex < length - showMediaItem && (

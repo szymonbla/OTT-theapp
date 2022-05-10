@@ -1,6 +1,7 @@
 import { RouteProps } from 'react-router-dom';
 
 import { HomePage } from 'pages/HomePage';
+import { VideoPlayerPage } from 'pages/VideoPlayer';
 import { RoutesDefinition } from './RoutesDefinition';
 
 export const userRoutes: RouteProps[] = [
@@ -9,6 +10,7 @@ export const userRoutes: RouteProps[] = [
     element: <HomePage />
   },
   {
-    path: RoutesDefinition.player
+    path: RoutesDefinition.playerWithId,
+    element: <VideoPlayerPage />
   }
 ];

@@ -1,3 +1,3 @@
 export * from './localStorageKeys';
-export * from './plaformCodes';
+export * from './platformConfig';
 export * from './mediaRequestConfig';

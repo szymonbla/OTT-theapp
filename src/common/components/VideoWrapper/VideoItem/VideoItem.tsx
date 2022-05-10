@@ -1,17 +1,21 @@
 import { useEffect, useState } from 'react';
 
 import { Box, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 import { MediaImageModel } from 'common/types';
 import PlaceholderImage from 'common/images/placeholderImage.jpg';
-
+import { RoutesDefinition } from 'routing/constants/RoutesDefinition';
 interface VideoItemProps {
   images: MediaImageModel[];
   title: string;
+  id: number | undefined;
 }
 
-export const VideoItem = ({ images, title }: VideoItemProps) => {
+export const VideoItem = ({ images, title, id }: VideoItemProps) => {
   const [imageSrc, setImageSrc] = useState<string | undefined>('');
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (images.length === 0) {
@@ -29,13 +33,19 @@ export const VideoItem = ({ images, title }: VideoItemProps) => {
 
   return (
     <Box
+      onClick={() => {
+        navigate(`${RoutesDefinition.player}/${id}`);
+      }}
       sx={{
         display: 'flex',
         flexDirection: 'column',
         backgroundColor: 'secondary.main',
         minWidth: '410px',
         borderRadius: 2,
-        mr: 2
+        mr: 2,
+        '&:hover': {
+          cursor: 'pointer'
+        }
       }}
     >
       <Box component="img" sx={{ aspectRatio: '16 / 9', height: '75%' }} src={imageSrc} />
