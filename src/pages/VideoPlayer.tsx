@@ -32,6 +32,8 @@ export const VideoPlayerPage = () => {
 
     if (userId === -999) {
       mutate({ StreamType: StreamType.TRIAL, MediaId: Number(id), token });
+    } else if (userId > 0) {
+      mutate({ StreamType: StreamType.MAIN, MediaId: Number(id), token });
     }
 
     isMounted.current = true;
@@ -53,7 +55,7 @@ export const VideoPlayerPage = () => {
       >
         {isError && (
           <Typography variant="h3" fontWeight="500" sx={{ mb: 2 }}>
-            Lack permissions
+            Does not have a valid subscription
           </Typography>
         )}
         <Box sx={{ mb: 5 }}>

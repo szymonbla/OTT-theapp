@@ -61,9 +61,15 @@ export const authenticatedAnonymousUserRequestSchema = z.object({
   Device: anonymousUserDeviceViewSchema
 });
 
+export const signInRequestSchema = z.object({
+  UserName: z.string(),
+  Password: z.string(),
+  Device: anonymousUserDeviceViewSchema
+});
+
 export const UserInfoViewModelSchema = z.object({
   Id: z.number(),
-  UserName: z.string(),
+  UserName: z.string().optional(),
   FullName: z.string(),
   Email: z.string().optional(),
   Initials: z.string().optional(),
@@ -74,11 +80,11 @@ export const UserInfoViewModelSchema = z.object({
 
 export const TokenReponseSchema = z.object({
   Token: z.string(),
-  TokenExpires: z.string(),
+  TokenExpires: z.string().optional(),
   RefreshToken: z.string().optional()
 });
 
-export const authenticatedAnonymousUserResponseSchema = z.object({
+export const authenticatedUserResponseSchema = z.object({
   User: UserInfoViewModelSchema,
   AuthorizationToken: TokenReponseSchema
 });
@@ -88,7 +94,7 @@ export const tokenDataSchema = z.object({
 });
 export interface UserInfoViewModel {
   id: number;
-  userName: string;
+  userName?: string;
   fullName: string;
   email?: string;
   initials?: string;
