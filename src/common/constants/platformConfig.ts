@@ -3,5 +3,6 @@ export enum PlatformCode {
 }
 
 export enum StreamType {
-  TRIAL = 'TRIAL'
+  TRIAL = 'TRIAL',
+  MAIN = 'MAIN'
 }

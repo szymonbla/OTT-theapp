@@ -24,9 +24,9 @@ export const SplashPage = () => {
       updateUserState({
         user: {
           fullName: data.User.FullName,
-          userName: data.User.UserName,
-          id: data.User.Id,
-          avatarUrl: data.User.AvatarUrl
+          email: data.User.Email,
+          initials: data.User.Initials,
+          id: data.User.Id
         }
       });
     }
