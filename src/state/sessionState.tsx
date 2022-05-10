@@ -12,6 +12,7 @@ interface SessionContextShape {
   token: string | null;
   isAuthenticated: boolean;
   login: ({ token }: LoginData) => void;
+  logout: () => void;
 }
 
 type ActionTypes = 'logout' | 'login';
@@ -62,9 +63,7 @@ export const SessionContextProvider = ({ children }: SessionContextProviderProps
   useEffect(() => {
     const tokenFromLocalStorage = localStorage.getItem('token');
 
-    if (tokenFromLocalStorage) {
-      // navigate(RoutesDefinition.homeScreen);
-    } else {
+    if (!tokenFromLocalStorage) {
       navigate(RoutesDefinition.splash);
     }
   }, [navigate, sessionState]);
@@ -75,9 +74,22 @@ export const SessionContextProvider = ({ children }: SessionContextProviderProps
     navigate(RoutesDefinition.homeScreen);
   };
 
+  const logoutHandler = () => {
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      console.error(`Missing token`);
+    }
+
+    localStorage.removeItem('token');
+    sessionDispatcher({ type: 'logout' });
+    navigate(RoutesDefinition.splash);
+  };
+
   const authContextValues: SessionContextShape = {
     ...sessionState,
-    login: loginHandler
+    login: loginHandler,
+    logout: logoutHandler
   };
 
   return <SessionContext.Provider value={authContextValues}>{children}</SessionContext.Provider>;
