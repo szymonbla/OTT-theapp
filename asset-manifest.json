@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/OTT-theapp/static/css/main.d34339ad.css",
+    "main.js": "/OTT-theapp/static/js/main.c8941528.js",
+    "static/js/787.8c21f76b.chunk.js": "/OTT-theapp/static/js/787.8c21f76b.chunk.js",
+    "static/media/placeholderImage.jpg": "/OTT-theapp/static/media/placeholderImage.eeb9163294d5d1028194.jpg",
+    "index.html": "/OTT-theapp/index.html",
+    "main.d34339ad.css.map": "/OTT-theapp/static/css/main.d34339ad.css.map",
+    "main.c8941528.js.map": "/OTT-theapp/static/js/main.c8941528.js.map",
+    "787.8c21f76b.chunk.js.map": "/OTT-theapp/static/js/787.8c21f76b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d34339ad.css",
+    "static/js/main.c8941528.js"
+  ]
+}
