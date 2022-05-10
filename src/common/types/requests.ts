@@ -83,6 +83,9 @@ export const authenticatedAnonymousUserResponseSchema = z.object({
   AuthorizationToken: TokenReponseSchema
 });
 
+export const tokenDataSchema = z.object({
+  token: z.string()
+});
 export interface UserInfoViewModel {
   id: number;
   userName: string;

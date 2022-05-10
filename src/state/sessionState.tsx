@@ -63,7 +63,7 @@ export const SessionContextProvider = ({ children }: SessionContextProviderProps
     const tokenFromLocalStorage = localStorage.getItem('token');
 
     if (tokenFromLocalStorage) {
-      navigate(RoutesDefinition.homeScreen);
+      // navigate(RoutesDefinition.homeScreen);
     } else {
       navigate(RoutesDefinition.splash);
     }

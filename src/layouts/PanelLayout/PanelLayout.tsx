@@ -11,7 +11,7 @@ interface PanelLayoutProps {
 
 export const PanelLayout = ({ children, sx }: PanelLayoutProps) => {
   return (
-    <BaseLayout sx={{ display: 'flex', flexDirection: 'column', ...sx }}>
+    <BaseLayout sx={{ display: 'flex', flexDirection: 'column', overflowY: 'scroll', ...sx }}>
       <Menu />
       {children}
     </BaseLayout>
